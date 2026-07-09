@@ -4,7 +4,7 @@ Questo laboratorio riproduce su piccola scala l'esperimento centrale del paper d
 
 ## Contenuti
 
-* `Lab1_CNNs_solution.ipynb`: notebook principale con tutti gli esercizi, codice, output ed analisi
+* `Lab1-CNNs.ipynb`: notebook principale con tutti gli esercizi, codice, output ed analisi
 
 ## Obiettivi del Laboratorio
 
