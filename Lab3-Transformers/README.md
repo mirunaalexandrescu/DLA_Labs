@@ -4,7 +4,7 @@ Classificazione binaria del sentiment su recensioni cinematografiche: confronto 
 
 ## Contenuti
 
-* `Lab3-Transformers-Completed.ipynb`: notebook principale con tutti gli esercizi, codice, output ed analisi
+* `Lab3-Transformers.ipynb`: notebook principale con tutti gli esercizi, codice, output ed analisi
 
 ## Obiettivi del Laboratorio
 
