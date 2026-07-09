@@ -118,8 +118,3 @@ Il laboratorio conferma alcune intuizioni di base sull'adversarial learning. I m
 
 Un risultato che non mi aspettavo è la differenza netta tra i due metodi di OOD detection: l'autoencoder (AUC 0.94) supera nettamente il max logit (AUC 0.67) sul modello con dropout. Probabilmente perché il dropout riduce l'overconfidence del classificatore e quindi penalizza proprio i metodi che si basano sulla sua fiducia nelle predizioni, mentre l'autoencoder lavora su un compito indipendente (la ricostruzione) e non risente di questo effetto.
 
-## Possibili miglioramenti
-
-1. La consegna chiede esplicitamente di ricavare uno split di validazione dal training set, separato dal test set, da usare per le valutazioni. In questo lavoro ho usato direttamente il test set ufficiale di CIFAR 10 sia per l'accuratezza sia per l'OOD detection.
-2. La dipendenza da epsilon della qualità degli esempi avversari, richiesta nell'Esercizio 2.1, è coperta più diffusamente negli Esercizi 2.2 e 3.3 piuttosto che con un test dedicato subito nell'Esercizio 2.1.
-3. Sarebbe interessante ripetere l'Esercizio 1 anche con il modello senza dropout, per verificare se davvero è il dropout a spiegare la differenza di prestazioni tra max logit e autoencoder osservata qui.
