@@ -91,9 +91,6 @@ A parità di profondità, la rete plain e quella residuale hanno esattamente lo 
 
 Sull'MLP il collasso è netto: oltre gli 8 blocchi la rete plain smette del tutto di allenarsi, passando da circa 97% a livello del caso in un salto praticamente discontinuo. Sulla CNN, che include batch normalization dopo ogni convoluzione, il degrado è più graduale e la rete continua comunque ad apprendere, solo con prestazioni via via peggiori all'aumentare della profondità. Questo suggerisce che la batch normalization attenui, senza eliminarlo, il problema descritto dal paper di ResNet, e conferma che la questione non è specifica di un'architettura ma di come il gradiente si propaga attraverso composizioni sempre più lunghe di trasformazioni non lineari.
 
-### 3. Un limite onesto da segnalare
-
-Questi numeri vengono da un singolo run per configurazione, con un solo seed. I valori riportati per lo sweep dell'MLP sono letti in modo approssimato dai grafici del notebook, dato che le accuracy esatte non vengono stampate come testo per quell'esperimento. Lo sweep sulla CNN copre inoltre solo quattro profondità (20, 32, 44 e 56 layer), contro le profondità fino a 110 layer esplorate nel paper originale, per limiti di tempo di training disponibile.
 
 ## Esecuzione
 
