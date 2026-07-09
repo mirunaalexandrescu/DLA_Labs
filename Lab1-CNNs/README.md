@@ -38,7 +38,7 @@ Confronto tra MLP plain e MLP residuale, dove le due architetture condividono la
 
 | Profondità (blocchi) | MLP plain | MLP residuale |
 |---|---|---|
-| 1, 2, 4, 8 | circa 97% di accuracy | circa 97 98% di accuracy |
+| 1, 2, 4, 8 | circa 97% di accuracy | circa 97-98% di accuracy |
 | 16, 32 | crolla al livello del caso (circa 10%) | resta circa 98% |
 
 Fino a 8 blocchi le due architetture si comportano in modo pressoché identico. Oltre questa soglia la rete plain smette letteralmente di apprendere: il loss di training converge a ln(10), il valore atteso per un modello che assegna probabilità uniforme a tutte e 10 le classi, segno che i pesi non vengono più aggiornati in modo significativo. Non si tratta quindi di un degrado graduale delle prestazioni, ma di un collasso completo del processo di ottimizzazione.
@@ -48,9 +48,9 @@ Per capire l'origine del fenomeno, ho misurato la norma del gradiente sul layer 
 | Profondità | Norma gradiente, MLP plain | Norma gradiente, MLP residuale |
 |---|---|---|
 | 1 | circa 0.5 | circa 1 |
-| 4 | circa 1e minus 3 | circa 1 |
-| 8 | circa 1e minus 6 | circa 1 |
-| 16 | circa 1e minus 12 | circa 1 |
+| 4 | circa 1e - 3 | circa 1 |
+| 8 | circa 1e - 6 | circa 1 |
+| 16 | circa 1e -s 12 | circa 1 |
 | 32 | 0.0 esatto (sottoflow numerico in float32) | circa 1 |
 
 Per la rete plain, la regola della catena moltiplica in sequenza lo jacobiano di ogni blocco, ciascuno approssimativamente della forma ReLU'(x) per W. Con l'inizializzazione standard questi fattori non conservano esattamente la norma, quindi il loro prodotto tende a decadere in modo geometrico con la profondità, fino ad annullarsi numericamente. Per la rete residuale, ogni blocco calcola x più f(x), quindi il suo jacobiano è la somma tra la matrice identità e lo jacobiano di f. La componente identità garantisce che esista sempre almeno un percorso, quello attraverso le sole connessioni di scarto, lungo il quale il gradiente si propaga dalla loss fino al primo layer senza alcuna attenuazione, indipendentemente da quanti blocchi si attraversano. Le connessioni residuali non eliminano il vanishing gradient all'interno di f, ma offrono una via alternativa che lo aggira completamente.
@@ -77,8 +77,8 @@ Ho scelto questo esercizio tra i tre proposti perché la CNN dell'esercizio 1.3 
 | Architettura | Profondità testate | Test accuracy | Comportamento con la profondità |
 |---|---|---|---|
 | MLP plain | 1 a 32 blocchi | crolla al 10% oltre 8 blocchi | collasso totale dell'ottimizzazione |
-| MLP residuale | 1 a 32 blocchi | stabile 97 98% | nessun degrado |
-| CNN plain | 20 a 56 layer | da 82% a 71 74% | degradazione progressiva |
+| MLP residuale | 1 a 32 blocchi | stabile 97-98% | nessun degrado |
+| CNN plain | 20 a 56 layer | da 82% a 71-74% | degradazione progressiva |
 | CNN residuale | 20 a 56 layer | stabile 85 86% | nessun degrado |
 
 ## Conclusioni Chiave
