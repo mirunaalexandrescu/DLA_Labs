@@ -1,0 +1,21 @@
+name: transformers
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pytorch
+  - torchvision
+  - pytorch-cuda=12.1
+  - numpy
+  - matplotlib
+  - scikit-learn
+  - jupyterlab
+  - pip
+  - pip:
+      - transformers
+      - datasets
+      - accelerate
+      - peft
