@@ -1,6 +1,6 @@
 # Deep Learning Applications 2025–2026
 
-Questo repository raccoglie il lavoro svolto per tre dei laboratori del corso Deep Learning Applications: connessioni residuali nelle reti profonde, fine-tuning di transformer per sentiment analysis, e detection Out-of-Distribution con robustezza adversariale. Ogni laboratorio affronta un problema diverso ma tutti condividono lo stesso impianto: verificare empiricamente un fenomeno descritto in letteratura, non limitarsi a implementare un'architettura.
+Questo repository raccoglie il lavoro svolto per tre dei laboratori del corso Deep Learning Applications: connessioni residuali nelle reti profonde, fine-tuning di transformer per sentiment analysis, e detection Out-of-Distribution con robustezza adversariale. 
 
 ## Lab 1 — CNN e Connessioni Residuali
 
